@@ -1,0 +1,9 @@
+img {
+  max-width: 300px;
+}
+
+.btn_back {
+  position: fixed;
+  left: 68px;
+  top: 50px;
+}

@@ -1,0 +1,32 @@
+<div class="flex-container">
+  <button mat-mini-fab color="primary" routerLink="/funcionarios" class="btn_back">
+    <mat-icon>arrow_left</mat-icon>
+  </button>
+ <mat-card>
+   <form action="" id="main-form" [formGroup]="funcionario" (ngSubmit)="submit()">
+
+     <mat-form-field appearance="outline">
+      <mat-label>Nome do Funcionário</mat-label>
+      <input type="text" matInput formControlName="nome">
+      <mat-error>
+        Este campo é obrigatório.
+      </mat-error>
+     </mat-form-field>
+
+     <mat-form-field appearance="outline">
+      <mat-label>E-mail do Funcionário</mat-label>
+      <input type="text" matInput formControlName="email">
+      <mat-error>
+        <span *ngIf="funcionario.get('email')?.getError('required')">Este campo é obrigatório.</span>
+        <span *ngIf="funcionario.get('email')?.getError('email')">Digite um e-mail válido.</span>
+      </mat-error>
+     </mat-form-field>
+
+     <button mat-raised-button color="primary" type="button" class="btn" (click)="fileInput.click()">Adicionar Foto</button>
+     <input type="file" accept="image/*" id="file-input" #fileInput formControlName="foto" (change)="fileChange($event)">
+
+     <button mat-raised-button color="accent" type="submit" style="margin-top: 10px">Salvar Alterações</button>
+
+   </form>
+ </mat-card>
+</div>

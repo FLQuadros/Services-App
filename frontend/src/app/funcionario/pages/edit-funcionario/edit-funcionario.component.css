@@ -1,0 +1,20 @@
+#main-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+}
+
+#file-input {
+  display: none;
+}
+
+.btn {
+  width: 150px;
+}
+
+.btn_back {
+  position: fixed;
+  left: 4.25rem;
+  top: 3.125rem;
+}

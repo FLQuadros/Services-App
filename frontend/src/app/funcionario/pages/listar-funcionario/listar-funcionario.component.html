@@ -1,0 +1,47 @@
+<div class="flex-container colum">
+  <table mat-table [dataSource]="funcionarios" class="fun-table mat-elevation-z8">
+
+    <ng-container matColumnDef="idFuncionario">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let fun">{{ fun.idFuncionario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let fun">
+        <a [routerLink]="'/funcionarios/' + fun.idFuncionario">{{ fun.nome }}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>E-mail</th>
+      <td mat-cell *matCellDef="let fun">{{ fun.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="foto">
+      <th mat-header-cell *matHeaderCellDef>Foto</th>
+      <td mat-cell *matCellDef="let fun">{{ fun.foto }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let fun">
+        <button mat-raised-button color="accent" [routerLink]="'/funcionarios/edit/' + fun.idFuncionario">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-raised-button color="warn" style="margin-left: 10px;" (click)="confirmationDelete(fun.idFuncionario)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+
+  </table>
+ 
+</div>
+
+<button mat-mini-fab class="add" color="primary" routerLink="/funcionarios/novo-funcionario">
+  <mat-icon>add</mat-icon>
+</button>
